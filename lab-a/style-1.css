@@ -1,0 +1,95 @@
+
+body {
+    font-family: Georgia, serif; 
+    background-color: #f4f4f4; 
+    color: #333; 
+    line-height: 1.6;
+    margin: 0;
+    padding: 20px;
+    background-image: url('image/tlo1.jpg'); 
+}
+
+main {
+    max-width: 800px;
+    margin: 0 auto; 
+    background-color: #ffffff; 
+    padding: 20px 40px;
+    border: 1px solid #dddddd; 
+}
+
+h1, h2 {
+    color: #000000; 
+}
+
+h2 {
+    border-bottom: 1px solid #eeeeee;
+    padding-bottom: 10px;
+}
+
+ul {
+    padding-left: 20px; 
+}
+
+footer {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 0.9em;
+    color: #777;
+}
+
+@media (max-width: 600px) {
+    body {
+        padding: 10px;
+    }
+    main {
+        padding: 15px;
+    }
+}
+
+header {
+    background-color: #e9e9e9;
+    padding: 10px 40px;
+    border-bottom: 1px solid #dddddd;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    text-align: center;
+}
+
+nav li {
+    display: inline-block; 
+    margin: 0 15px;
+}
+
+nav a {
+    text-decoration: none; 
+    color: #333;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: #000; 
+}
+
+footer {
+    background-color: #333; 
+    color: #fff;
+    padding: 20px;
+}
+
+.train-image {
+    width: 100%;
+    max-width: 600px;
+    height: auto; 
+    display: block; 
+    margin: 20px auto; 
+    border-radius: 8px;
+}
+
+main section {
+    border: 1px solid #e0e0e0;
+    padding: 20px;
+    margin-bottom: 10px; 
+}
