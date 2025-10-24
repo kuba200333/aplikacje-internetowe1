@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LAB C - Puzzle z Mapą</title>
+    
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+     integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+     crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+     crossorigin=""></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h1>Zaawansowane JS - Puzzle z Mapą</h1>
+
+    <div class="controls">
+        <button id="btn-location">Moja lokalizacja</button>
+        <button id="btn-get-map">Pobierz mapę (stwórz puzzle)</button>
+    </div>
+
+    <div id="map"></div>
+
+    <div class="puzzle-game-container">
+        <div id="puzzle-source" class="drop-zone">
+            <h3>Wymieszane elementy</h3>
+            <p>Przeciągnij stąd elementy na planszę po prawej.</p>
+        </div>
+
+        <div id="puzzle-board" class="drop-zone">
+            </div>
+    </div>
+
+    <script src="script.js" defer></script>
+</body>
+</html>
