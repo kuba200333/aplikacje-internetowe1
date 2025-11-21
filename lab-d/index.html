@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LAB D - Pogoda REST API</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+    <h1>Sprawdź pogodę</h1>
+    
+    <div class="search-box">
+        <input type="text" id="cityInput" placeholder="Wpisz nazwę miasta (np. Wroclaw)">
+        <button id="getWeatherBtn">Pogoda</button>
+    </div>
+
+    <div id="currentWeatherSection" class="weather-section hidden">
+        <h2>Pogoda bieżąca</h2>
+        <div id="current-weather">
+            </div>
+    </div>
+
+    <div id="forecastSection" class="weather-section hidden">
+        <h2>Prognoza 5-dniowa</h2>
+        <div id="forecast-container">
+            </div>
+    </div>
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
