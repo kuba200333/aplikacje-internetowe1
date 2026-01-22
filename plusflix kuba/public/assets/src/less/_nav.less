@@ -1,0 +1,265 @@
+.main-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 15%;
+  background: linear-gradient(180deg, rgba(17, 17, 17, 0.9) 0%, rgba(17, 17, 17, 0.75) 100%);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid @lineColor;
+
+  &.nav-details-mode {
+    padding: 0.8rem 15%;
+  }
+}
+
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.back-btn {
+  color: white;
+  display: flex;
+  align-items: center;
+  transition: transform 0.2s;
+
+  &:hover {
+    transform: translateX(-3px);
+    color: @accentColor;
+  }
+}
+
+.logo a {
+  color: @accentColor;
+  font-size: 1.4rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.nav-search-form {
+  &.desktop-only {
+    @media (max-width: @mobileBreakpoint) {
+      display: none;
+    }
+  }
+
+  input {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 32px;
+    padding: 0.5rem 1rem;
+    color: white;
+    width: 300px;
+    transition: all 0.3s ease;
+
+    &:focus {
+      background: rgba(255, 255, 255, 0.2);
+      border-color: rgba(255, 255, 255, 0.5);
+      outline: none;
+    }
+  }
+}
+
+.mobile-search-toggle {
+  display: none;
+  font-size: 1.2rem;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+
+  @media (max-width: @mobileBreakpoint) {
+    display: block; // Show on mobile
+  }
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+/* Search Modal Styles */
+.search-modal-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.9);
+  z-index: 2000;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 100px;
+  backdrop-filter: blur(5px);
+
+  .search-modal-content {
+    background: @elevatedSurface;
+    padding: 30px;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 400px;
+    position: relative;
+    text-align: center;
+    border: 1px solid @lineColor;
+
+    .close-search {
+      position: absolute;
+      top: 10px;
+      right: 20px;
+      font-size: 2rem;
+      cursor: pointer;
+
+      &:hover {
+        color: @accentColor;
+      }
+    }
+
+    h3 {
+      margin-bottom: 20px;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 15px;
+      background: rgba(0, 0, 0, 0.3);
+      border: 1px solid @lineColor;
+      color: white;
+      border-radius: 4px;
+    }
+
+    .btn-search-submit {
+      background: @accentColor;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 4px;
+      width: 100%;
+      font-weight: bold;
+    }
+  }
+}
+
+@media (max-width: @mobileBreakpoint) {
+  .main-header {
+    padding: 0.85rem 5%; // Reduced padding from 15% to 5% on mobile
+
+    &.nav-details-mode {
+      .logo {
+        display: none;
+      }
+    }
+  }
+
+  .logo a {
+    font-size: 1.2rem;
+  }
+
+  .btn-login {
+    padding: 0.55rem 1rem;
+  }
+}
+
+// High Contrast Mode Support
+body.high-contrast {
+  .main-header {
+    background: #000;
+    border-bottom: 2px solid #ffff00;
+
+    .logo a {
+      color: #ffff00;
+    }
+
+    .back-btn {
+      color: #ffff00;
+
+      &:hover {
+        color: #000;
+        background: #ffff00;
+      }
+    }
+
+    .nav-search-form input {
+      background: #000;
+      border: 2px solid #ffff00;
+      color: #ffff00;
+
+      &::placeholder {
+        color: #ffff00;
+        opacity: 0.7;
+      }
+
+      &:focus {
+        outline: 2px solid #ffff00;
+        box-shadow: none;
+      }
+    }
+
+    .mobile-search-toggle {
+      color: #ffff00;
+    }
+
+    .header-actions {
+      .btn-icon {
+        color: #ffff00;
+
+        &:hover {
+          color: #000;
+          background: #ffff00;
+          border-radius: 50%;
+        }
+      }
+
+      .btn-login {
+        background: #000;
+        border: 2px solid #ffff00;
+        color: #ffff00;
+
+        &:hover {
+          background: #ffff00;
+          color: #000;
+          box-shadow: none;
+        }
+      }
+    }
+  }
+
+  .search-modal-overlay .search-modal-content {
+    background: #000;
+    border: 2px solid #ffff00;
+
+    h3 {
+      color: #ffff00;
+    }
+
+    .close-search {
+      color: #ffff00;
+    }
+
+    input {
+      background: #000;
+      border: 2px solid #ffff00;
+      color: #ffff00;
+    }
+
+    .btn-search-submit {
+      background: #000;
+      border: 2px solid #ffff00;
+      color: #ffff00;
+
+      &:hover {
+        background: #ffff00;
+        color: #000;
+      }
+    }
+  }
+}

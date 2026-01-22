@@ -1,0 +1,548 @@
+.movie-show-container {
+  padding: 6rem 15%;
+
+  @media (max-width: @mobileBreakpoint) {
+    padding: 2rem 5%;
+  }
+
+  .movie-hero {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 40px;
+    background-color: @elevatedSurface;
+    padding: 30px;
+    border-radius: 12px;
+
+    @media (max-width: @mobileBreakpoint) {
+      flex-direction: column;
+      padding: 20px;
+      gap: 20px;
+    }
+
+    .hero-poster {
+      flex-shrink: 0;
+      width: 300px;
+
+      @media (max-width: @mobileBreakpoint) {
+        width: 100%;
+        max-width: 300px;
+        margin: 0 auto;
+      }
+
+      img {
+        width: 100%;
+        border-radius: 8px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+      }
+
+      .no-poster {
+        width: 100%;
+        height: 450px;
+        background: #333;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 8px;
+
+        @media (max-width: @mobileBreakpoint) {
+          height: 350px;
+        }
+      }
+    }
+
+    .hero-info {
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+
+      .favorite-btn {
+        position: absolute;
+        top: 0;
+        right: 0;
+        font-size: 1.5rem;
+        text-decoration: none;
+        transition: transform 0.2s;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 10;
+
+        &:hover {
+          transform: scale(1.1);
+        }
+      }
+
+      .hero-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-bottom: 20px;
+        padding-right: 50px; // Make space for the heart icon
+
+        @media (max-width: @mobileBreakpoint) {
+          flex-direction: column;
+          gap: 15px;
+        }
+
+        h1 {
+          font-size: 2.5rem;
+          margin: 0;
+          color: @fontColor;
+          line-height: 1.2;
+
+          @media (max-width: @mobileBreakpoint) {
+            font-size: 1.8rem;
+          }
+        }
+      }
+
+      .hero-description {
+        font-size: 1rem;
+        line-height: 1.6;
+        color: tint(@fontColor, 20%);
+        flex-grow: 1;
+        margin-bottom: 30px;
+      }
+
+      .hero-meta {
+        display: flex;
+        gap: 30px;
+        font-size: 1.1rem;
+        padding-top: 20px;
+        border-top: 1px solid @lineColor;
+        margin-top: auto;
+        flex-wrap: wrap; // Allow wrapping on small screens
+        margin-bottom: 20px;
+
+        div {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          color: @mutedColor;
+
+          strong {
+            color: @fontColor;
+          }
+        }
+      }
+
+      .hero-actions-bottom {
+        .btn-add-review {
+          background-color: @accentColor;
+          color: white;
+          border: none;
+          padding: 10px 20px;
+          border-radius: 4px;
+          cursor: pointer;
+          font-weight: 600;
+          transition: background 0.3s;
+          width: 100%;
+
+          &:hover {
+            background-color: @accentColorDark;
+          }
+        }
+      }
+    }
+  }
+
+  .content-split {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    gap: 30px;
+
+    @media (max-width: @mobileBreakpoint) {
+      grid-template-columns: 1fr;
+    }
+
+    .platforms-section,
+    .reviews-section {
+      background-color: @elevatedSurface;
+      padding: 25px;
+      border-radius: 12px;
+      height: fit-content;
+
+      @media (max-width: @mobileBreakpoint) {
+        padding: 20px;
+      }
+
+      h3 {
+        margin-bottom: 20px;
+        border-bottom: 2px solid @accentColor;
+        padding-bottom: 10px;
+        display: inline-block;
+        font-size: 1.2rem;
+      }
+    }
+
+    .platform-list {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+
+      .platform-item {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        background: rgba(255, 255, 255, 0.05);
+        padding: 12px;
+        border-radius: 8px;
+        text-decoration: none;
+        color: @fontColor;
+        transition: background 0.2s;
+
+        &:hover {
+          background: rgba(255, 255, 255, 0.1);
+        }
+
+        img {
+          width: 30px;
+          height: 30px;
+          object-fit: cover;
+          border-radius: 4px;
+        }
+
+        .platform-details {
+          margin-left: auto;
+          font-size: 0.8rem;
+          color: @accentColor;
+          border: 1px solid @accentColor;
+          padding: 2px 6px;
+          border-radius: 4px;
+        }
+      }
+    }
+
+    .reviews-list {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+
+      .review-item {
+        background: rgba(255, 255, 255, 0.03);
+        padding: 15px;
+        border-radius: 8px;
+
+        .review-header {
+          display: flex;
+          justify-content: space-between;
+          margin-bottom: 10px;
+
+          .nick {
+            font-weight: bold;
+            color: @accentColor;
+          }
+
+          .date {
+            font-size: 0.85rem;
+            color: @mutedColor;
+          }
+        }
+
+        .review-content {
+          margin-bottom: 15px;
+          line-height: 1.5;
+          font-style: italic;
+          color: tint(@fontColor, 10%);
+        }
+
+        .review-rating {
+          color: gold;
+          font-size: 1.2rem;
+
+          .empty-star {
+            color: @mutedColor;
+            opacity: 0.3;
+          }
+        }
+      }
+    }
+  }
+}
+
+/* Modal Styles */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  z-index: 1000;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(5px);
+
+  .modal-content {
+    background: @elevatedSurface;
+    padding: 30px;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 500px;
+    position: relative;
+    border: 1px solid @lineColor;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+
+    @media (max-width: @mobileBreakpoint) {
+      padding: 20px;
+      width: 95%;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      font-size: 2rem;
+      cursor: pointer;
+      line-height: 1;
+
+      &:hover {
+        color: @accentColor;
+      }
+    }
+
+    h3 {
+      margin-bottom: 25px;
+      text-align: center;
+      font-size: 1.5rem;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+
+      label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: 600;
+        color: @mutedColor;
+      }
+
+      input[type="text"],
+      textarea {
+        width: 100%;
+        padding: 12px;
+        background: rgba(0, 0, 0, 0.3);
+        border: 1px solid @lineColor;
+        color: @fontColor;
+        border-radius: 4px;
+        font-family: inherit;
+        resize: vertical;
+
+        &:focus {
+          border-color: @accentColor;
+          outline: none;
+        }
+      }
+    }
+
+    .star-rating-input {
+      display: flex;
+      flex-direction: row-reverse;
+      justify-content: center;
+      gap: 5px;
+      margin: 10px 0;
+
+      input {
+        display: none;
+      }
+
+      label {
+        font-size: 2.2rem;
+        color: #444;
+        cursor: pointer;
+        transition: color 0.2s;
+        margin: 0;
+        line-height: 1;
+
+        @media (max-width: @mobileBreakpoint) {
+          font-size: 1.8rem;
+        }
+      }
+
+      input:checked~label,
+      label:hover,
+      label:hover~label {
+        color: gold;
+      }
+    }
+
+    .rules-link {
+      display: block;
+      margin: 20px 0;
+      font-size: 0.9rem;
+      color: @mutedColor;
+      text-align: center;
+      text-decoration: underline;
+
+      &:hover {
+        color: @accentColor;
+      }
+    }
+
+    .btn-submit-review {
+      width: 100%;
+      padding: 14px;
+      background: @accentColor;
+      border: none;
+      color: white;
+      font-weight: bold;
+      font-size: 1rem;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background 0.3s;
+
+      &:hover {
+        background: @accentColorDark;
+      }
+    }
+  }
+}
+
+// High Contrast Mode Support
+body.high-contrast {
+  .movie-show-container {
+    .movie-hero {
+      background: #000;
+      border: 2px solid #ffff00;
+
+      .hero-header h1 {
+        color: #ffff00;
+        text-decoration: underline;
+      }
+
+      .hero-description {
+        color: #ffff00;
+      }
+
+      .hero-meta div {
+        color: #ffff00;
+
+        strong {
+          color: #ffff00;
+          text-decoration: underline;
+        }
+      }
+
+      .hero-actions-bottom .btn-add-review {
+        background: #000;
+        color: #ffff00;
+        border: 2px solid #ffff00;
+
+        &:hover {
+          background: #ffff00;
+          color: #000;
+        }
+      }
+    }
+
+    .content-split {
+
+      .platforms-section,
+      .reviews-section {
+        background: #000;
+        border: 2px solid #ffff00;
+
+        h3 {
+          color: #ffff00;
+          border-bottom-color: #ffff00;
+        }
+      }
+
+      .platform-list .platform-item {
+        background: #000;
+        border: 1px solid #ffff00;
+        color: #ffff00;
+
+        &:hover {
+          background: #ffff00;
+          color: #000;
+
+          span {
+            color: #000;
+          }
+        }
+
+        span {
+          color: #ffff00;
+        }
+
+        .platform-details {
+          color: #ffff00;
+          border-color: #ffff00;
+        }
+      }
+
+      .reviews-list .review-item {
+        background: #000;
+        border: 1px solid #ffff00;
+
+        .review-header {
+          .nick {
+            color: #ffff00;
+            font-weight: bold;
+          }
+
+          .date {
+            color: #ffff00;
+          }
+        }
+
+        .review-content {
+          color: #ffff00;
+        }
+
+        .review-rating {
+          color: #ffff00;
+        }
+      }
+    }
+  }
+
+  .modal-overlay .modal-content {
+    background: #000;
+    border: 2px solid #ffff00;
+
+    h3 {
+      color: #ffff00;
+      text-decoration: underline;
+    }
+
+    .modal-close {
+      color: #ffff00;
+    }
+
+    .form-group {
+      label {
+        color: #ffff00;
+      }
+
+      input[type="text"],
+      textarea {
+        background: #000;
+        border: 1px solid #ffff00;
+        color: #ffff00;
+
+        &:focus {
+          outline: 2px solid #ffff00;
+        }
+      }
+    }
+
+    .rules-link {
+      color: #ffff00;
+    }
+
+    .btn-submit-review {
+      background: #000;
+      border: 2px solid #ffff00;
+      color: #ffff00;
+
+      &:hover {
+        background: #ffff00;
+        color: #000;
+      }
+    }
+  }
+}

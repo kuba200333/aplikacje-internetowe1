@@ -1,0 +1,32 @@
+services:
+  app:
+    build: .
+    ports:
+      - "80:80"
+    volumes:
+      - .:/var/www/html
+    command: >
+      bash -c "
+        if [ ! -f config/config.php ]; then 
+          cp config/config.dist.php config/config.php; 
+          echo 'Utworzono config.php';
+        fi &&
+        if [ ! -f data.db ]; then 
+          touch data.db;
+          sqlite3 data.db < sql/plusflix.sql;
+          echo 'Utworzono baze danych i wykonano migracje';
+        fi &&
+        php -S 0.0.0.0:80 -t public
+      "
+
+  assets:
+    image: node:22-alpine
+    volumes:
+      - .:/app
+    working_dir: /app
+    command: >
+      sh -c "
+        npm install -g less less-plugin-clean-css && 
+        lessc public/assets/src/less/style.less public/assets/dist/style.min.css --clean-css --source-map &&
+        echo 'Style LESS zostaly skompilowane.'
+      "

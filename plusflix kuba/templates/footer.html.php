@@ -1,0 +1,2 @@
+<p>Ta strona wykorzystuje pliki cookies w celu świadczenia usług na najwyższym poziomie. Dalsze korzystanie ze strony oznacza zgodę na ich użycie.</p>
+<p style="margin-top: 5px; color: #555;">&copy; 2026 Plusflix</p>
